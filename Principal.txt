@@ -5,6 +5,8 @@ Inicio
   var juegos_precios[3], peliculas_precios[5]: Real;
   var juegos_contadores[3], juegos_stock[3], peliculas_contadores[5], peliculas_stock[5]: Entero;
 
+  var ganancia_total, ganancia_juego, acumulado_juegos = 0, ganancia_pelicula, acumulado_peliculas = 0: Real;
+
   var tiene_representante, seguir_comprando = 1, seguir_atendiendo = 1, opcion_principal: Booleano;
   var nombre_cliente, nombre_representante: Cadena;
   var edad_cliente, edad_representante: Entero;
@@ -25,7 +27,7 @@ Inicio
       Leer >> edad_cliente;
     Fin_Mientras
 
-    Si (edad_cliente < 11) Entonces;
+    Si (edad_cliente < 12) Entonces;
       Mostrar << "Necesitas un representante para poder comprar pelis. Tienes uno? (0: no, 1: si) ";
       Leer >> tiene_representante;
 
@@ -69,4 +71,30 @@ Inicio
   Fin_Mientras
 
   // Cierre de caja
+  Mostrar << "Detalle de ventas de los juegos: "
+
+  Para (i = 1 Hasta i = 3) Hacer;
+    ganancia_juego = juegos_contadores[i] * juegos_precios[i];
+
+    Mostrar << "- ", juegos_nombres[i], ". ", juegos_contadores[i], " unidades vendidas. Ganancia de ", << ganancia_juego, "$";
+    Mostrar << "Unidades disponibles en el stock: ", juegos_stock[i];
+
+    acumulado_juegos = acumulado_juegos + ganancia_juego;
+  Fin_Para
+
+  Para (i = 1 Hasta i = 5) Hacer;
+    ganancia_pelicula = peliculas_contadores[i] * peliculas_precios[i];
+
+    Mostrar << "- ", peliculas_nombres[i], ". ", peliculas_contadores[i], " unidades vendidas. Ganancia de ", << ganancia_pelicula, "$";
+    Mostrar << "Unidades disponibles en el stock: ", peliculas_stock[i];
+
+    acumulado_peliculas = acumulado_peliculas + ganancia_pelicula;
+  Fin_Para
+
+  ganancia_total = acumulado_juegos + acumulado_peliculas;
+
+  Mostrar << "---------- RESUMEN DEL DIA ----------";
+  Mostrar << "Total de las ventas de los juegos: ", acumulado_juegos, "$";
+  Mostrar << "Total de las ventas de las peliculas: ", acumulado_peliculas, "$";
+  Mostrar << "Total de ganancias de la tienda: ", ganancia_total, "$";
 Fin
