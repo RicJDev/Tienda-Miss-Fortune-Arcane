@@ -1,0 +1,26 @@
+Algoritmo Tienda Miss Fortune
+Inicio
+  var i: Entero;
+  var juegos_nombres[3], peliculas_nombres[5]: Cadena;
+  var juegos_precios[3], peliculas_precios[5]: Real;
+  var juegos_contadores[3], juegos_stock[3], peliculas_contadores[5], peliculas_stock[5]: Entero;
+
+  var tiene_representante: Booleano;
+  var nombre_cliente, nombre_representante: Cadena;
+  var edad_cliente, edad_representante: Entero;
+
+  // Backend
+  // 1. Cargar datos de la base
+  // 2. Proveer a los procedimientos de dichos datos
+  // 3. Realizar un reporte de todos los datos y mandarlos al Frontend administrativo
+
+  // Frontend (clientes de la tienda)
+  // 1. Seleccionar entre juegos y pelis
+  // 2. Solicitar datos segun la compra (en caso de no tenerlos de una compra anterior)
+  // 3. Cobrar
+  // 4. Permitir realizar otra compra
+  // 5. Permitir el paso a otro cliente
+
+  // Frontend (administradores de la tienda)
+  // 1. Mostrar un resumen de los datos obtenidos
+Fin
