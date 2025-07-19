@@ -38,6 +38,9 @@ Inicio
 
         stock = stock - 1;
         contador = contador + 1;
+
+        Sino
+          Mostrar << "Lo sentimos pero no somos caridad";
       Fin_Si
 
       Sino
