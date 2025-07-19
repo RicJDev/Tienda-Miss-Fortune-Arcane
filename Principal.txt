@@ -12,8 +12,8 @@ Inicio
   var edad_cliente, edad_representante: Entero;
 
   // Inicalizar bases de datos
-  init_juegos(i, juegos_stock[i], juegos_nombres[i], juegos_precios[i], juegos_contadores[i])
-  init_peliculas(i, peliculas_stock[i], peliculas_nombres[i], peliculas_precios[i], peliculas_contadores[i])
+  init_juegos(i, juegos_stock[i], juegos_nombres[i], juegos_precios[i], juegos_contadores[i]);
+  init_peliculas(i, peliculas_stock[i], peliculas_nombres[i], peliculas_precios[i], peliculas_contadores[i]);
 
   Mientras (seguir_atendiendo = 1) Hacer;
     Mostrar << "Indiqueme su nombre, mi estimado. ";
@@ -43,7 +43,7 @@ Inicio
         Fin_Mientras
 
         Si (edad_representante < 18) Entonces;
-          Mostrar << "Tu representante no es mayor de edad. Puedes seguir comprando, pero hay restricciones. ";
+          Mostrar << "Tu representante no es mayor de edad. Puedes seguir comprando, pero hay restricciones para adquirir juegos. ";
           tiene_representante = 0;
         Fin_Si
       Fin_Si
@@ -54,11 +54,11 @@ Inicio
       Leer >> opcion_principal;
 
       Si (opcion_principal = 1) Entonces;
-        menu_juegos(i, nombre, juegos_stock[i], juegos_contadores[i], juegos_nombres[i], juegos_precios[i])
+        menu_juegos(i, nombre, tiene_representante, juegos_stock[i], juegos_contadores[i], juegos_nombres[i], juegos_precios[i]);
         Mostrar << menu_juegos;
 
         Sino
-          menu_peliculas(i, nombre, tiene_representante, peliculas_stock[i], peliculas_contadores[i], peliculas_nombres[i], peliculas_precios[i])
+          menu_peliculas(i, nombre, peliculas_stock[i], peliculas_contadores[i], peliculas_nombres[i], peliculas_precios[i]);
           Mostrar << menu_peliculas;
       Fin_Si
 
@@ -71,7 +71,7 @@ Inicio
   Fin_Mientras
 
   // Cierre de caja
-  Mostrar << "Detalle de ventas de los juegos: "
+  Mostrar << "Detalle de ventas de los juegos: ";
 
   Para (i = 1 Hasta i = 3) Hacer;
     ganancia_juego = juegos_contadores[i] * juegos_precios[i];
@@ -82,6 +82,7 @@ Inicio
     acumulado_juegos = acumulado_juegos + ganancia_juego;
   Fin_Para
 
+  Mostrar << "Detalle de ventas de las peliculas: ";
   Para (i = 1 Hasta i = 5) Hacer;
     ganancia_pelicula = peliculas_contadores[i] * peliculas_precios[i];
 
