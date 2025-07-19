@@ -1,0 +1,5 @@
+Procedimientos init_peliculas(E: i: Entero, E/S: peliculas_stock[i], peliculas_contadores[i]: Entero, peliculas_nombres[i]: Cadena, peliculas_precios[i]: Real);
+Inicio
+  // Backend
+  // 1. Cargar datos de la base
+Fin_Procedimiento

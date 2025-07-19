@@ -1,0 +1,5 @@
+Procedimientos init_juegos(E: i: Entero, E/S: juegos_stock[i], juegos_contadores[i]: Entero, juegos_nombres[i]: Cadena, juegos_precios[i]: Real);
+Inicio
+  // Backend
+  // 1. Cargar datos de la base
+Fin_Procedimiento
