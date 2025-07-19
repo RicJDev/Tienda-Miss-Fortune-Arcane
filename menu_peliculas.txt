@@ -1,4 +1,46 @@
-Procedimiento menu_peliculas(E: i: Entero, nombre: Cadena, tiene_representante: Booleano, E/S: peliculas_stock[i], peliculas_contadores[i]: Entero, peliculas_nombres[i]: Cadena, peliculas_precios[i]: Real)
+Procedimiento menu_peliculas(E: i: Entero, nombre: Cadena, E/S: peliculas_stock[i], peliculas_contadores[i]: Entero, peliculas_nombres[i]: Cadena, peliculas_precios[i]: Real)
 Inicio
-  var opcion_peliculas: Entero;
+  var nombre: Cadena;
+  var validacion_pago, seguir_comprando = 1: Booleano;
+  var precio, monto_pago: Real;
+  var opcion, contador, stock: Entero;
+
+  Mientras (seguir_comprando = 1) Hacer;
+    Mostrar << "Esta es la lista de peliculas disponibles: ";
+    Para (i = 1 Hasta i = 5) Hacer;
+      Mostrar << i, "-. ", peliculas_nombres[i];
+    Fin_Para
+
+    Mostrar << "Elige uno. ";
+    Leer >> opcion;
+
+    Mientras (opcion < 1 OR opcion > 5) Hacer;
+      Mostrar << opcion, " no es una opcion valida. Intenta otra vez. ";
+      Leer >> opcion;
+    Fin_Mientras
+
+    nombre = peliculas_nombres[opcion];
+    precio = peliculas_precios[opcion];
+    stock = peliculas_stock[opcion];
+    contador = peliculas_contadores[opcion];
+
+    Si (stock > 0) Entonces;
+      Mostrar << "Has elegido ", nombre, " la cual tiene un precio de ", precio, "$. Hora de pagar";
+      monto_pago = precio;
+      validacion_pago = metodos_pago(monto_pago);
+
+      Si (validacion_pago = 1) Entonces;
+        Mostrar << "Gracias por su compra!";
+
+        stock = stock - 1;
+        contador = contador + 1;
+      Fin_Si
+
+      Sino
+        Mostrar << "Lo sentimos. Se nos agoto el stock de ", nombre;
+    Fin_Si
+
+    Mostrar << "Desea comprar otro pelicula? (0: no, 1: si)";
+    Leer >> seguir_comprando;
+  Fin_Mientras
 Fin_Procedimiento
