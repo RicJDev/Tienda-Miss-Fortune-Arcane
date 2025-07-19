@@ -1,0 +1,4 @@
+Procedimiento menu_peliculas(E: i: Entero, nombre: Cadena, tiene_representante: Booleano, E/S: peliculas_stock[i], peliculas_contadores[i]: Entero, peliculas_nombres[i]: Cadena, peliculas_precios[i]: Real)
+Inicio
+  var opcion_peliculas: Entero;
+Fin_Procedimiento

@@ -1,0 +1,8 @@
+Funcion metodos_pago(monto_pago): Booleano;
+Inicio
+  var validacion_pago: Booleano;
+
+  validacion_pago = 0;
+
+  Devolver (validacion_pago);
+Fin_Funcion

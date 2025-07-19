@@ -1,0 +1,4 @@
+Procedimiento menu_juegos(E: i: Entero, nombre: Cadena, E/S: juegos_stock[i], juegos_contadores[i]: Entero, juegos_nombres[i]: Cadena, juegos_precios[i]: Real)
+Inicio
+  var opcion_juegos: Entero;
+Fin_Procedimiento
