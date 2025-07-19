@@ -1,4 +1,4 @@
-Funcion metodos_pago(monto_pago): Booleano;
+Funcion metodos_pago(monto_pago: Real): Booleano;
 Inicio
   var validacion_pago: Booleano;
 
