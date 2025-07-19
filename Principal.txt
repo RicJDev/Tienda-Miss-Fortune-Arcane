@@ -5,7 +5,7 @@ Inicio
   var juegos_precios[3], peliculas_precios[5]: Real;
   var juegos_contadores[3], juegos_stock[3], peliculas_contadores[5], peliculas_stock[5]: Entero;
 
-  var tiene_representante: Booleano;
+  var tiene_representante, seguir_comprando = 1, seguir_atendiendo = 1, opcion_principal: Booleano;
   var nombre_cliente, nombre_representante: Cadena;
   var edad_cliente, edad_representante: Entero;
 
@@ -14,13 +14,64 @@ Inicio
   // 2. Proveer a los procedimientos de dichos datos
   // 3. Realizar un reporte de todos los datos y mandarlos al Frontend administrativo
 
-  // Frontend (clientes de la tienda)
+  // Frontend clientes de la tienda
   // 1. Seleccionar entre juegos y pelis
-  // 2. Solicitar datos segun la compra (en caso de no tenerlos de una compra anterior)
+  // 2. Solicitar datos segun la compra en caso de no tenerlos de una compra anterior
   // 3. Cobrar
   // 4. Permitir realizar otra compra
   // 5. Permitir el paso a otro cliente
 
-  // Frontend (administradores de la tienda)
+  Mientras (seguir_atendiendo = 1) Hacer;
+    Mostrar << "Indiqueme su nombre, mi estimado. ";
+    Leer >> nombre_cliente;
+    Mostrar << "Bienvenido seas, ", nombre_cliente, "!";
+    Mostrar << "Dime tu edad. ";
+
+    Mientras (edad_cliente < 1) Hacer;
+      Mostrar << "La edad ingresada ", edad_cliente, " no es valida. Intenta otra vez";
+      Leer >> edad_cliente;
+    Fin_Mientras
+
+    Si (edad_cliente < 11) Entonces;
+      Mostrar << "Necesitas un representante para poder comprar pelis. Tienes uno? (0: no, 1: si)";
+      Leer >> tiene_representante;
+
+      Si (tiene_representante = 1) Entonces;
+        Mostrar << "Ingresa el nombre de tu representante. ";
+        Leer >> nombre_representante;
+        Mostrar << "Ingresa su edad. ";
+        Leer >> edad_representante;
+
+        Mientras (edad_representante < 1) Hacer;
+          Mostrar << "La edad ingresada ", edad_representante, " no es valida. Intenta otra vez";
+          Leer >> edad_representante;
+        Fin_Mientras
+
+        Si (edad_representante < 18) Entonces;
+          Mostrar << "Tu representante no es mayor de edad. Puedes seguir comprando, pero hay restricciones";
+          tiene_representante = 0;
+        Fin_Si
+      Fin_Si
+    Fin_Si
+
+    Mientras (seguir_comprando = 1) Hacer;
+      Mostrar << "Deseas comprar pelis o videojuegos? (0: pelis, 1: videojuegos)";
+      Leer >> opcion_principal;
+
+      Si (opcion_principal = 1) Entonces;
+        // videojuegos
+        Sino
+        // pelis
+      Fin_Si
+
+      Mostrar << "Quieres seguir comprando? (0: no, 1: si)";
+      Leer >> seguir_comprando;
+    Fin_Mientras
+
+    Mostrar << "Desea pasar a otro cliente?";
+    Leer >> seguir_atendiendo;
+  Fin_Mientras
+
+  // Frontend administradores de la tienda
   // 1. Mostrar un resumen de los datos obtenidos
 Fin
