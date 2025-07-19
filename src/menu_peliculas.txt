@@ -43,6 +43,9 @@ Inicio
         Mostrar << "Lo sentimos. Se nos agoto el stock de ", nombre;
     Fin_Si
 
+    peliculas_stock[opcion] = stock;
+    peliculas_contadores[opcion] = contador;
+
     Mostrar << "Desea comprar otro pelicula? (0: no, 1: si)";
     Leer >> seguir_comprando;
   Fin_Mientras
